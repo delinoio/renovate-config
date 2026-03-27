@@ -1,17 +1,43 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "vulnerabilityAlerts": {
-    "enabled": true,
-    "labels": ["security"]
-  },
   "extends": [
-    "config:recommended",
-    "schedule:weekly",
-    "group:allNonMajor",
+    "config:best-practices",
     ":label(dependencies)",
     ":automergeMinor",
     ":disablePeerDependencies",
     ":dependencyDashboard"
   ],
-  "branchNameStrict": true
+  "timezone": "America/New_York",
+  "schedule": [
+    "0 0-3 * * 1"
+  ],
+  "branchNameStrict": true,
+  "minimumReleaseAge": "7 days",
+  "packageRules": [
+    {
+      "description": "Automerge low-risk updates after a one-week soak",
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Automerge low-risk pins and digests",
+      "matchUpdateTypes": ["pin", "digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Automerge lock file maintenance",
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "automerge": true,
+      "automergeType": "pr"
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["dependencies", "security"],
+    "automerge": true,
+    "automergeType": "pr",
+    "vulnerabilityFixStrategy": "lowest"
+  }
 }

@@ -9,7 +9,7 @@
   ],
   "timezone": "America/New_York",
   "schedule": [
-    "0 0-3 * * 1"
+    "* 0-3 * * 1"
   ],
   "branchNameStrict": true,
   "minimumReleaseAge": "7 days",

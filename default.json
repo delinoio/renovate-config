@@ -7,10 +7,16 @@
     ":disablePeerDependencies",
     ":dependencyDashboard"
   ],
-  "timezone": "America/New_York",
+  "timezone": "Asia/Seoul",
   "schedule": [
     "* 0-3 * * 1"
   ],
+  "updateNotScheduled": false,
+  "lockFileMaintenance": {
+    "schedule": ["* 0-3 * * 1"]
+  },
+  "semanticCommits": "enabled",
+  "semanticCommitScope": "deps",
   "branchNameStrict": true,
   "minimumReleaseAge": "7 days",
   "packageRules": [
